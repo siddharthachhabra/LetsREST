@@ -24,5 +24,9 @@ public class RestMethodService {
 	public String getUser(int id){
 		return userMap.get(id);
 	}
+	
+	public HashMap<Integer,String> getUsers(){
+		return userMap;
+	}
 
 }
