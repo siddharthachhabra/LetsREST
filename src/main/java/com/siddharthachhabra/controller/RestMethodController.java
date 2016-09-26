@@ -32,13 +32,19 @@ public class RestMethodController {
 	
 	@RequestMapping(value="/user",method=RequestMethod.POST)
 	public String addUser(@RequestBody User user){
-		methodService.addOrUpdate(user.getUserId(),user.getUserName());
+		methodService.addUser(user.getUserId(),user.getUserName());
 		return "User added Successfully!";
 	}
 	
-	@RequestMapping(value="/user",method=RequestMethod.DELETE)
-	public String deleteUser(@RequestBody User user){
-		methodService.removeUser(user.getUserId());
+	@RequestMapping(value="/user/{userId}",method=RequestMethod.POST)
+	public String updateUser(@PathVariable("userId") int userId,@RequestBody User user){
+		methodService.updateUser(userId,user.getUserName());
+		return "User updated Successfully!";
+	}
+	
+	@RequestMapping(value="/user/{userId}",method=RequestMethod.DELETE)
+	public String deleteUser(@PathVariable("userId") int userId){
+		methodService.removeUser(userId);
 		return "User deleted Successfully!";
 	}
 

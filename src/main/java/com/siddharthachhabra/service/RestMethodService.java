@@ -13,7 +13,11 @@ public class RestMethodService {
 		userMap=new HashMap<Integer,String>();
 	}
 	
-	public void addOrUpdate(int id,String name){
+	public void addUser(int id,String name){
+		userMap.put(id, name);
+	}
+	
+	public void updateUser(int id,String name){
 		userMap.put(id, name);
 	}
 	
